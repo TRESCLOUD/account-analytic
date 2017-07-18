@@ -17,6 +17,7 @@
         "account",
     ],
     "data": [
+        "security/security.xml",
         "security/ir.model.access.csv",
         "views/res_company_view.xml",
         "views/account_analytic_distribution_view.xml",
