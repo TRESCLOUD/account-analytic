@@ -190,3 +190,14 @@ msgstr "El porcentaje de las reglas no suman 100%"
 #: model:ir.model.fields,field_description:account_analytic_distribution.field_account_analytic_distribution_rule_sequence
 msgid "Sequence"
 msgstr "Secuencia"
+
+#. module: account_analytic_distribution
+#: model:res.groups,name:account_analytic_distribution.group_analytic_distribution
+msgid "Show Analytic Distribution"
+msgstr "Mostrar distribución analítica"
+
+#. module: account_analytic_distribution
+#: model:res.groups,comment:account_analytic_distribution.group_analytic_distribution
+msgid "Checking this option enables analytic distribution on invoice lines"
+msgstr "Si marca esta opción se habilitará la distribución analítica en líneas de facturas"
+

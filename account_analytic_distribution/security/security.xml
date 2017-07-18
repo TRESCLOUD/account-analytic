@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	
+    <record id="group_analytic_distribution" model="res.groups">
+        <field name="name">Show Analytic Distribution</field>
+        <field name="category_id" ref="base.module_category_hidden"/>
+        <field name="comment">Checking this option enables analytic distribution on invoice lines</field>
+    </record>
+
+</odoo>
