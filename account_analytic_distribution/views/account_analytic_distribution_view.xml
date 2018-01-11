@@ -21,7 +21,7 @@
                 <field name="rule_ids">
                     <tree string="Rules" editable="bottom">
                         <field name="sequence" widget="handle"/>
-                        <field name="percent"/>
+                        <field name="percent" sum="Total"/>
                         <field name="analytic_account_id"/>
                     </tree>
                 </field>
