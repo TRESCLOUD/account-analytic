@@ -61,3 +61,39 @@ class TestPurchaseProcurementAnalytic(common.SavepointCase):
         self.move.action_confirm()
         self.assertEqual(self.move.state, 'waiting')
         self.assertEqual(self.purchase.order_line[0].state, 'purchase')
+        # Testing all procurements have filled in different purchases
+        self.assertNotEquals(
+            self.procurement_1.purchase_id,
+            self.procurement_2.purchase_id,
+        )
+
+    def test_purchase_grouping(self):
+        # Procurements were automatically run on create
+        procurements = self.procurement_1 + self.procurement_2
+        procurements.cancel()
+        self.procurement_1.account_analytic_id = self.analytic_account
+        # Run procurements
+        procurements.run()
+        # Testing all procurements have filled in same purchase
+        self.assertEqual(
+            self.procurement_1.purchase_id,
+            self.procurement_2.purchase_id,
+        )
+
+    def test_procurement_to_purchase_no_analytic(self):
+        # Testing void analytic account on procurement run after the
+        # other one
+        # Run procurement
+        self.procurement_2.run()
+        self.procurement_1.run()
+        self.assertTrue(
+            self.procurement_2.purchase_id)
+        # Make sure that PO line have analytic account
+        self.assertEqual(
+            self.procurement_2.purchase_line_id.account_analytic_id.id,
+            self.analytic_account.id)
+        # Testing all procurements have filled in different purchases
+        self.assertNotEquals(
+            self.procurement_1.purchase_id,
+            self.procurement_2.purchase_id,
+        )
