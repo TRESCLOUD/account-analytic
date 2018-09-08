@@ -4,6 +4,8 @@
 
 from odoo.tests import common
 from odoo.exceptions import ValidationError
+from odoo import tools
+from odoo.modules.module import get_module_resource
 
 
 class TestAnalyticDistribution(common.SavepointCase):
@@ -33,6 +35,16 @@ class TestAnalyticDistribution(common.SavepointCase):
             ]
         })
         cls.user_type = cls.env.ref('account.data_account_type_revenue')
+        # Codigo modificado por TRESCLOUD
+        # Se le define la cuenta receivable y payable del partner partner_12
+        tools.convert_file(cls.env.cr, 'account',
+                           get_module_resource('account', 'test',
+                                               'account_minimal_test.xml'),
+                           {}, 'init', False, 'test')
+        p12 = cls.env.ref('base.res_partner_12')
+        p12.property_account_receivable_id = cls.env.ref('account.a_recv')
+        p12.property_account_payable_id = cls.env.ref('account.a_pay')
+        # Fin del codigo modificado por TRESCLOUD
         cls.invoice = cls.invoice_model.create({
             'partner_id': cls.env.ref('base.res_partner_12').id,
             'invoice_line_ids': [(0, 0, {
