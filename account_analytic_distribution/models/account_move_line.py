@@ -15,7 +15,7 @@ class AccountMoveLine(models.Model):
     )
 
     def _analytic_line_distributed_prepare(self, rule):
-        res = self._prepare_analytic_line()
+        res = self.with_context(rule=rule)._prepare_analytic_line()
         for line_dict in res:
             amount = (line_dict.get('amount') * rule.percent) / 100.0
             line_dict['amount'] = amount
