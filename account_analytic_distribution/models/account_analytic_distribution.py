@@ -32,6 +32,11 @@ class AccountAnalyticDistribution(models.Model):
         comodel_name='account.analytic.distribution.rule',
         inverse_name='distribution_id',
     )
+    active = fields.Boolean(
+        string='Active',
+        help="If the active field is set to False, it will allow you to hide the analytic distribution without removing it.",
+        default=True
+    )
 
     _sql_constraints = [
         ('name_uniq', 'unique(name, company_id)',
