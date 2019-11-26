@@ -202,3 +202,12 @@ msgstr "Mostrar distribución analítica"
 msgid "Checking this option enables analytic distribution on invoice lines"
 msgstr "Si marca esta opción se habilitará la distribución analítica en líneas de facturas"
 
+#. module: account_analytic_distribution
+#: model:ir.ui.view,arch_db:account_analytic_distribution.account_analytic_distribution_search
+msgid "Archived"
+msgstr "Archivado"
+
+#. module: account_analytic_distribution
+#: model:ir.model.fields,help:account_analytic_distribution.field_account_analytic_distribution_active
+msgid "If the active field is set to False, it will allow you to hide the analytic distribution without removing it."
+msgstr "Si el campo activo se establece en False, le permitirá ocultar la distribución analítica sin eliminarla."
