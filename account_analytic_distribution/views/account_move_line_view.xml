@@ -4,6 +4,14 @@
      License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html). -->
 <odoo>
 
+	<delete id="view_move_line_form_inherit" model="ir.ui.view"/>
+	
+	<delete id="view_move_line_form_1_inherit" model="ir.ui.view"/>
+	
+	<delete id="view_move_line_tree_inherit" model="ir.ui.view"/>
+	
+	<delete id="view_account_journal_form_inherit" model="ir.ui.view"/>
+	
     <record model="ir.ui.view" id="view_move_line_form">
         <field name="name">Add Analytic distribution field</field>
         <field name="model">account.move.line</field>
