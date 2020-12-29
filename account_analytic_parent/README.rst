@@ -58,14 +58,14 @@ Authors
 * Matmoz d.o.o.
 * Luxim d.o.o.
 * Deneroteam
-* Eficent
+* ForgeFlow
 * Tecnativa
-* Brainbean Apps
+* CorporateHub
 
 Contributors
 ~~~~~~~~~~~~
 
-* Eficent <http://www.eficent.com>
+* ForgeFlow <http://www.forgeflow.com>
 * Luxim d.o.o. <http://www.luxim.si>
 * Matmoz d.o.o. <http://www.matmoz.si>
 * Deneroteam. <dhaval@deneroteam.com>
@@ -74,7 +74,10 @@ Contributors
 * Vicent Cubells <vicent.cubells@tecnativa.com>
 * David Vidal <david.vidal@tecnativa.com>
 * Jaume Planas <jaume.planas@minorisa.net>
-* Alexey Pelykh <alexey.pelykh@brainbeanapps.com>
+* `CorporateHub <https://corporatehub.eu/>`__
+
+  * Alexey Pelykh <alexey.pelykh@corphub.eu>
+
 * Pedro Gonzalez <pedro.gonzalez@pesol.es>
 
 Maintainers

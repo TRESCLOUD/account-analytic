@@ -1,12 +1,12 @@
 # Copyright 2013 Julius Network Solutions
 # Copyright 2015 Clear Corp
 # Copyright 2016 OpenSynergy Indonesia
-# Copyright 2017 Eficent Business and IT Consulting Services S.L.
+# Copyright 2017 ForgeFlow S.L.
 # Copyright 2018 Hibou Corp.
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
     "name": "Stock Analytic",
-    "summary": "Adds an analytic account in stock move",
+    "summary": "Adds an analytic account and analytic tags in stock move",
     "version": "13.0.1.0.0",
     "author": "Julius Network Solutions, "
     "ClearCorp, OpenSynergy Indonesia, "
