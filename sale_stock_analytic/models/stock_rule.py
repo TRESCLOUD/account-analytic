@@ -29,7 +29,7 @@ class StockRule(models.Model):
             company_id,
             values,
         )
-        sol_id = move_values.get("sale_line_id")
+        sol_id = move_values.get("sale_line_id",False)
         if sol_id:
             sol_model = self.env["sale.order.line"]
             sol = sol_model.browse(sol_id)
