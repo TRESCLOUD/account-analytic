@@ -7,6 +7,8 @@ from odoo import api, models
 class ProductProduct(models.Model):
     _inherit = "product.product"
 
+    #TODO: evaluar con andres que hacer con este metodo en v14 no existe en el core
+    #por ende no hay como hacerle super para agregar analiticas
     @api.model
     def _anglo_saxon_sale_move_lines(
         self,
