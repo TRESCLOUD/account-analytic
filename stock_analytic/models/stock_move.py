@@ -6,6 +6,9 @@ class StockMove(models.Model):
     _inherit = 'stock.move'
 
     def _prepare_account_move_line(self, qty, cost, credit_account_id, debit_account_id, description):
+        '''
+        Add the analytical account and analytical labels to the invoice line
+        '''
         self.ensure_one()
         res = super(StockMove, self)._prepare_account_move_line(qty, cost, credit_account_id, debit_account_id, description)
         for line in res:
@@ -18,6 +21,9 @@ class StockMove(models.Model):
 
     @api.model
     def _prepare_merge_moves_distinct_fields(self):
+        '''
+                Prepare the fields to allow you to create the moves
+        '''
         fields = super()._prepare_merge_moves_distinct_fields()
         fields.append("analytic_account_id")
         return fields

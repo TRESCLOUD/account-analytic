@@ -6,6 +6,9 @@ class StockRule(models.Model):
     _inherit = "stock.rule"
 
     def _get_stock_move_values(self, product_id, product_qty, product_uom, location_id, name, origin, company_id,values):
+        '''
+            Add account and analytic tags from sales order to picking
+        '''
         move_values = super(StockRule, self)._get_stock_move_values(product_id, product_qty, product_uom, location_id, name, origin, company_id,values)
         sol_id = move_values.get("sale_line_id", False)
         if sol_id:

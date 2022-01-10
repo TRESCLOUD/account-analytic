@@ -6,6 +6,9 @@ class StockScrap(models.Model):
     _inherit = 'stock.scrap'
 
     def _prepare_move_values(self):
+        '''
+        Add the analytical account and analytical labels to the invoice line
+        '''
         res = super()._prepare_move_values()
         res.update(
             {
@@ -16,6 +19,10 @@ class StockScrap(models.Model):
         return res
 
     analytic_account_id = fields.Many2one(
-        string="Analytic Account", comodel_name="account.analytic.account"
+        string="Analytic Account",
+        comodel_name="account.analytic.account"
     )
-    analytic_tag_ids = fields.Many2many("account.analytic.tag", string="Analytic Tags")
+    analytic_tag_ids = fields.Many2many(
+        "account.analytic.tag",
+        string="Analytic Tags"
+    )
