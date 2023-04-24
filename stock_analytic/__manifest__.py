@@ -25,4 +25,5 @@
         "views/stock_picking_views.xml",
     ],
     "installable": True,
+    "auto_install": True,
 }
