@@ -11,5 +11,8 @@ class AccountMoveLine(models.Model):
         vals = super()._prepare_analytic_distribution_line(distribution, account_id, distribution_on_each_plan)
 
         if self.quantity < 0:
-            vals.update({'unit_amount': abs(self.quantity)})
+            # Validamos que la cuenta analítica a crear sea de los diarios de inventario para los productos que tienen ajustes de inventario y que la cantidad sea negativa
+            stock_journals = self.env['product.category'].with_company(self.company_id).search([('property_stock_journal', '!=', False)]).mapped('property_stock_journal')
+            if stock_journals and self.journal_id.id in stock_journals.ids:
+                vals.update({'unit_amount': abs(self.quantity)})
         return vals
