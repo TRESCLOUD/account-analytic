@@ -6,12 +6,23 @@
 # Copyright 2023 Quartile Limited
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 
-from odoo import api, models
+from odoo import api, fields, models
 
 
 class StockMove(models.Model):
     _name = "stock.move"
     _inherit = ["stock.move", "analytic.mixin"]
+
+    analytic_distribution = fields.Json(
+        inverse="_inverse_analytic_distribution",
+    )
+
+    def _inverse_analytic_distribution(self):
+        """If analytic distribution is set on move, write it on all move lines"""
+        for move in self:
+            move.move_line_ids.write(
+                {"analytic_distribution": move.analytic_distribution}
+            )
 
     def _prepare_account_move_line(
         self, qty, cost, credit_account_id, debit_account_id, svl_id, description
@@ -22,11 +33,12 @@ class StockMove(models.Model):
         )
         if not self.analytic_distribution:
             return res
+        accounts = self.product_id.product_tmpl_id.get_product_accounts()
+        account_valuation_id = (
+            accounts.get("stock_valuation") and accounts["stock_valuation"].id
+        )
         for line in res:
-            if (
-                line[2]["account_id"]
-                != self.product_id.categ_id.property_stock_valuation_account_id.id
-            ):
+            if line[2]["account_id"] != account_valuation_id:
                 # Add analytic account in debit line
                 line[2].update({"analytic_distribution": self.analytic_distribution})
         return res
