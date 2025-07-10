@@ -85,6 +85,7 @@ class StockMove(models.Model):
 
     def _action_done(self, cancel_backorder=False):
         for move in self:
+            move.move_line_ids.analytic_distribution = move.analytic_distribution
             if not move._need_validate_distribution():
                 continue
             move._validate_distribution(
@@ -112,3 +113,8 @@ class StockMoveLine(models.Model):
         if self.analytic_distribution:
             res.update({"analytic_distribution": self.analytic_distribution})
         return res
+
+    def write(self, vals):
+        if "analytic_distribution" in vals:
+            self.move_id.analytic_distribution = vals["analytic_distribution"]
+        return super().write(vals)
