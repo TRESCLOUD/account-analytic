@@ -1,3 +1,0 @@
-- [APSL-Nagarro](https://apsl.tech):
-  - Bernat Obrador \<<bernat.obrador@nagarro.com>\>
-  - Antoni Marroig \<<antoni.marroig@nagarro.com>\>
