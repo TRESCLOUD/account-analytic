@@ -6,7 +6,7 @@
 # Copyright 2023 Quartile Limited
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
 {
-    "name": "Stock Analytic",
+    "name": "Stock Analytic (Beta pre-20)",
     "summary": "Adds analytic distribution in stock move",
     "version": "1.0",
     "author": "Julius Network Solutions, "
